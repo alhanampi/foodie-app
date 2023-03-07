@@ -7,12 +7,20 @@ const RandomRecipe = () => {
   const [randomRecipes, setRandomRecipes] = useState<any[]>([]);
 
   const randomIdeas = async () => {
-    const api: Response = await fetch(
-      `https://api.spoonacular.com/recipes/random?number=10&apiKey=${process.env.NEXT_PUBLIC_FOODIE_API_KEY}`
-    );
-    const data = await api.json();
-    console.log(data);
-    setRandomRecipes(data.recipes);
+    const checkStorage = localStorage.getItem("randomRecipes");
+
+    if (checkStorage) {
+      setRandomRecipes(JSON.parse(checkStorage));
+    } else {
+      const api: Response = await fetch(
+        `https://api.spoonacular.com/recipes/random?number=10&apiKey=${process.env.NEXT_PUBLIC_FOODIE_API_KEY}`
+      );
+      const data = await api.json();
+
+      localStorage.setItem("randomRecipes", JSON.stringify(data.recipes));
+      console.log(data);
+      setRandomRecipes(data.recipes);
+    }
   };
 
   useEffect(() => {
