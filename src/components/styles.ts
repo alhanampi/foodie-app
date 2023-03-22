@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Card = styled.div`
-  min-height: 25rem;
+  min-height: 15rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -14,8 +14,7 @@ export const Card = styled.div`
     border-radius: 2rem;
     position: absolute;
     left: 0;
-    width: 100%;
-    object-fit: cover;
+    width: auto;
   }
 
   p {
@@ -36,10 +35,14 @@ export const Card = styled.div`
   }
 `;
 
+export const CardSmall = styled(Card)`
+  min-height: 10rem;
+`
+
 export const Gradient = styled.div`
   z-index: 3;
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5));
 `;

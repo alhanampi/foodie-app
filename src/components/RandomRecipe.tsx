@@ -35,7 +35,7 @@ const RandomRecipe = () => {
         options={{
           perPage: 3,
           drag: "free",
-          gap: "5rem",
+          gap: "2rem",
           rewind: true,
         }}
       >
@@ -43,9 +43,9 @@ const RandomRecipe = () => {
           return (
             <SplideSlide>
               <Card key={random.id}>
-                <p>{random.title}</p>
                 <img src={random.image} alt={random.title} />
                 <Gradient />
+                <p>{random.title}</p>
               </Card>
             </SplideSlide>
           );
