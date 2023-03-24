@@ -11,7 +11,7 @@ const Picker = () => {
 
     
 <List>
-    {/* <Link href={`/ideas/italian`}>
+    <Link href={`/ideas/italian`}>
 
       <FaPizzaSlice />
       <h3>Italian</h3>
@@ -30,7 +30,7 @@ const Picker = () => {
     <div>
       <GiChopsticks />
       <h3>Japanese</h3>
-    </div> */}
+    </div>
     </List>
     </>
   )
