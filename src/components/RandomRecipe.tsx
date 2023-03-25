@@ -3,8 +3,10 @@ import { Wrapper, Card, Gradient } from "./styles";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { getRandom } from "@/services/foodServices";
+import { useRouter } from "next/router";
 
 const RandomRecipe = () => {
+  const router = useRouter();
   const [randomRecipes, setRandomRecipes] = useState<any[]>([]);
 
   const randomIdeas = async () => {
@@ -27,6 +29,13 @@ const RandomRecipe = () => {
     randomIdeas();
   }, []);
 
+  const navigate = (id: number): void => {
+    router.push({
+      pathname: "/details/",
+      query: { id },
+    });
+  };
+
   return (
     <Wrapper>
       <h2>Feeling like trying something new today?</h2>
@@ -41,7 +50,7 @@ const RandomRecipe = () => {
       >
         {randomRecipes.map((random): any => {
           return (
-            <SplideSlide>
+            <SplideSlide onClick={() => navigate(random.id)}>
               <Card key={random.id}>
                 <img src={random.image} alt={random.title} />
                 <Gradient />

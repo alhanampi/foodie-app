@@ -3,8 +3,10 @@ import { Wrapper, Gradient, CardSmall } from "./styles";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { getVeggie } from "@/services/foodServices";
+import { useRouter } from "next/router";
 
 const Veggie = () => {
+  const router = useRouter();
   const [veggieRecipes, setVeggieRecipes] = useState<any[]>([]);
 
   const veggieIdeas = async () => {
@@ -27,6 +29,13 @@ const Veggie = () => {
     veggieIdeas();
   }, []);
 
+  const navigate = (id: number): void => {
+    router.push({
+      pathname: "/details/",
+      query: { id },
+    });
+  };
+
   return (
     <Wrapper>
       <h2>Veggie top picks</h2>
@@ -41,7 +50,7 @@ const Veggie = () => {
       >
         {veggieRecipes.map((veggie): any => {
           return (
-            <SplideSlide>
+            <SplideSlide onClick={() => navigate(veggie.id)}>
               <CardSmall key={veggie.id}>
                 <p>{veggie.title}</p>
                 <img src={veggie.image} alt={veggie.title} />

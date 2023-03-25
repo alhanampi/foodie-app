@@ -44,7 +44,7 @@ export const SubText = styled(Text)`
 `
 
 export const Main = styled.main`
-  margin-top: 5em;
+  margin-top: 7em;
 `;
 
 export const FooterFoodie = styled.footer`
