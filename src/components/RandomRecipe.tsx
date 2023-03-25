@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Wrapper, Card, Gradient } from "./styles";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { getRandom } from "@/services/foodServices";
 
 const RandomRecipe = () => {
   const [randomRecipes, setRandomRecipes] = useState<any[]>([]);
@@ -12,14 +13,13 @@ const RandomRecipe = () => {
     if (checkStorage) {
       setRandomRecipes(JSON.parse(checkStorage));
     } else {
-      const api: Response = await fetch(
-        `https://api.spoonacular.com/recipes/random?number=10&apiKey=${process.env.NEXT_PUBLIC_FOODIE_API_KEY}`
-      );
-      const data = await api.json();
-
-      localStorage.setItem("randomRecipes", JSON.stringify(data.recipes));
-      console.log(data);
-      setRandomRecipes(data.recipes);
+      getRandom()
+        .then((res) => {
+          setRandomRecipes(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
