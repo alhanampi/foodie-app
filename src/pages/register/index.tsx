@@ -1,9 +1,9 @@
-import { Main, FormBox, Button } from "../styles"
+import { MainRegister, FormBox, Button } from "../styles"
 import Link from "next/link"
 
 const Register = () => {
   return (
-    <Main>
+    <MainRegister>
     <h2>Create an account to save your fav recipes!</h2>
 
     <FormBox>
@@ -22,7 +22,7 @@ const Register = () => {
         <input placeholder="lots of ****" type="password" required/>
       </label>
 
-      <Button>Log in!</Button>
+      <Button>Create your account</Button>
 
     </FormBox>
       <p>Already an user?</p>
@@ -32,7 +32,7 @@ const Register = () => {
         </Link>
         
         </Button>
-    </Main>
+    </MainRegister>
   )
 }
 

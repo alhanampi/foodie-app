@@ -1,9 +1,9 @@
 import Link from "next/link"
-import { Main, FormBox, Button } from "../styles"
+import { MainRegister, FormBox, Button } from "../styles"
 
 const Login = () => {
   return (
-    <Main>
+    <MainRegister>
       <h2>Log into your account to save recipes and more!</h2>
 
       <FormBox>
@@ -29,7 +29,7 @@ const Login = () => {
           </Button>
 
         <p>forgot your password? (too bad, we don't have that coded yet)</p>
-      </Main>
+      </MainRegister>
   )
 }
 
