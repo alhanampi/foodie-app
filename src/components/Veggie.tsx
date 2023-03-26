@@ -30,6 +30,7 @@ const Veggie = () => {
   }, []);
 
   const navigate = (id: number): void => {
+    console.log(id);
     router.push({
       pathname: "/details/",
       query: { id },

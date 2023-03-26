@@ -1,7 +1,7 @@
 const url1 = `https://api.spoonacular.com`;
 const url2 = `?number=10&apiKey=`;
 
-export const getRandom = async () => {
+export const getRandom = async (): Promise<any> => {
   const api: Response = await fetch(
     `${url1}/recipes/random${url2}${process.env.NEXT_PUBLIC_FOODIE_API_KEY}`
   );
@@ -12,7 +12,7 @@ export const getRandom = async () => {
   return data.recipes;
 };
 
-export const getVeggie = async () => {
+export const getVeggie = async (): Promise<any> => {
   const api: Response = await fetch(
     `${url1}/recipes/random${url2}${process.env.NEXT_PUBLIC_FOODIE_API_KEY}&tags=vegetarian`
   );
@@ -22,7 +22,7 @@ export const getVeggie = async () => {
   return data.recipes;
 };
 
-export const getDetails = async (id: string) => {
+export const getDetails = async (id: string): Promise<any> => {
   const api: Response = await fetch(
     `${url1}/recipes/${id}/card?apiKey=${process.env.NEXT_PUBLIC_FOODIE_API_KEY}`
     );
@@ -39,3 +39,11 @@ export const getDetails = async (id: string) => {
 //   console.log('data', data);
 //   return data;
 // };
+
+export const getCategory = async (type: string): Promise<any> => {
+  const api: Response = await fetch(
+    `${url1}/recipes/complexSearch${url2}${process.env.NEXT_PUBLIC_FOODIE_API_KEY}&cuisine=${type}`
+  );
+  const data = await api.json();
+  return data.results;
+};

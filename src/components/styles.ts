@@ -38,7 +38,7 @@ export const Card = styled.div`
 
 export const CardSmall = styled(Card)`
   min-height: 10rem;
-`
+`;
 
 export const Gradient = styled.div`
   z-index: 3;

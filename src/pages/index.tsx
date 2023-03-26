@@ -25,11 +25,11 @@ export default function Home() {
   return (
     <Main>
       <Title>Welcome!</Title>
+      <Picker />
+      <Veggie />
+      <RandomRecipe />
       {/* <h3>Wanna hear a food joke?</h3> */}
       {/* <p>{joke}</p> */}
-      <Picker />
-      <RandomRecipe />
-      <Veggie />
     </Main>
   );
 }
